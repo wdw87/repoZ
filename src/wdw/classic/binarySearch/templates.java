@@ -1,10 +1,7 @@
 package wdw.classic.binarySearch;
 
 /**
- * 查找方式	        循环条件	    左侧更新	    右侧更新	        中间点位置	            返回值
- * 标准二分查找	left <= right	left = mid - 1	right = mid + 1	    (left + right) / 2	        -1 / mid
- * 二分找左边界	left < right	left = mid - 1	right = mid	        (left + right) / 2	        -1 / left
- * 二分找右边界	left < right	left = mid	    right = mid - 1	    (left + right) / 2 + 1	    -1 / right
+ *
  */
 public class templates {
     //标准二分
@@ -38,7 +35,10 @@ public class templates {
                 right = mid; // 注意
             }
         }
-        return left;
+        // target 比所有数都大
+        if (left == nums.length) return -1;
+        // 类似之前算法的处理方式
+        return nums[left] == target ? left : -1;
     }
     //找右边界
     int right_bound(int[] nums, int target) {
@@ -55,6 +55,7 @@ public class templates {
                 right = mid;
             }
         }
-        return left - 1; // 注意
+        if (left == 0) return -1;
+        return nums[left-1] == target ? (left-1) : -1; //注意
     }
 }
