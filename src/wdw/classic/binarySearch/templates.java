@@ -55,7 +55,7 @@ public class templates {
                 right = mid;
             }
         }
-        if (left == 0) return -1;
+        if (left == 0) return -1;//所有数都比目标值大，target比所有数都小
         return nums[left-1] == target ? (left-1) : -1; //注意
     }
 }
