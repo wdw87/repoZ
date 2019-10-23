@@ -1,9 +1,17 @@
-package wdw.classic.math;
+package wdw.math;
 
 /**
  * 快速乘法取模，大数相乘取模
  * a * b mod m
  * 就把一个数不断除以2，一个数不断乘以2，如果b%2 == 1的话就在加一个a，因为类似于5*3啊，5+5*2对吧。。。
+ *
+ * 相关运算规则：
+ * IF :
+ *      a = c % m && b = d % m
+ * THAN :
+ *      a + b = c + (d % m)
+ *      a - b = c - (d % m)
+ *      a * b = a * (d % m)
  */
 public class FastMod {
     private static long fastMod(long a, long b,long m){

@@ -1,4 +1,4 @@
-package wdw.classic.math;
+package wdw.math;
 
 /**
  * 卡特兰数---组合数学中常出现在各种问题中的数
