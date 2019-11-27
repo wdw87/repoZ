@@ -1,4 +1,4 @@
-package wdw.exams.disjoitSet;
+package wdw.classic.disjoinSet;
 
 import java.util.HashSet;
 import java.util.Scanner;
