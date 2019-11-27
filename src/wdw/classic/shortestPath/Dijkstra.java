@@ -14,7 +14,7 @@ public class Dijkstra {
         }
         @Override
         public int compareTo(Node o) {
-            return 0;
+            return this.dis - o.dis;
         }
     }
     public static void dijkstra(int s,int[][] G,Node[] dis){
