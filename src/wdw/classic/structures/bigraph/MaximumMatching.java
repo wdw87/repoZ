@@ -1,4 +1,4 @@
-package wdw.classic.bigraph;
+package wdw.classic.structures.bigraph;
 
 import java.util.Arrays;
 
