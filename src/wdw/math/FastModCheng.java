@@ -13,7 +13,7 @@ package wdw.math;
  *      a - b = c - (d % m)
  *      a * b = a * (d % m)
  */
-public class FastMod {
+public class FastModCheng {
     private static long fastMod(long a, long b,long m){
         long ans = 0;
         while(b != 0){
@@ -27,7 +27,10 @@ public class FastMod {
         }
         return ans;
     }
+
     public static void main(String[] args) {
         System.out.println(fastMod(222222322223452222L,33333333333333333L,5555555555555555L));
+        System.out.println(fastMod(2,3,4));
+
     }
 }
