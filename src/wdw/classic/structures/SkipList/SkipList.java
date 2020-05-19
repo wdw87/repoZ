@@ -108,24 +108,31 @@ public class SkipList {
 
     public void remove(int val){
         if(contains(val)){
+            //一定存在，每次都从Head的最高层开始遍历
             Node curr = head;
             int level = maxLevel;
+            //寻找要删除的节点
             while (level > 0){
                 if(curr.nextNodes.get(level) != null){
+                    //向右寻找
                     if(curr.nextNodes.get(level).val < val) {
                         curr = curr.nextNodes.get(level);
-                    }else if(curr.nextNodes.get(level).val == val){
+                    }else if(curr.nextNodes.get(level).val == val){ //找到了
                         curr = curr.nextNodes.get(level);
                         break;
                     }else{
+                        //本层没有找到，到下一层找
                         level --;
                     }
                 }else{
+                    //本层没有找到，到下一层找
                     level --;
                 }
             }
+            //寻找要删除的节点的前驱节点,每一层都要断开与被删除节点的连接
             while(level > 0){
                 Node pre = head;
+                //向右寻找
                 while(pre.nextNodes.get(level).val != val){
                     pre = pre.nextNodes.get(level);
                 }
