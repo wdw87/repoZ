@@ -3,29 +3,32 @@ package wdw.classic.sort;
 import java.util.Arrays;
 
 public class QSort {
-    private static void exch(int[] a,int i, int j){
+    private static void swap(int[] a,int i, int j){
         int tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
-    private static int partition(int[] a, int lo, int hi){
-        int i = lo,j = hi + 1;
-        while(true){
-            while(a[++i] < a[lo]){
-                if(i == hi)
-                    break;
+    /*
+    同荷兰国旗问题的方法
+     */
+    private static int partition(int[] nums, int lo, int hi){
+        int ref = nums[lo];
+        int left = lo;
+        int right = hi;
+        int i = left;
+        while(i <= right){
+            if(nums[i] < ref){
+                swap(nums, i, left);
+                left ++;
+                i ++;
+            }else if(nums[i] > ref){
+                swap(nums, i, right);
+                right --;
+            }else{
+                i ++;
             }
-            while(a[lo] < a[--j]){
-                if(j == lo)
-                    break;
-            }
-            if(i >= j)
-                break;
-
-            exch(a,i,j);
         }
-        exch(a,lo,j);
-        return j;
+        return i - 1;
     }
     protected static void sort(int[] a, int lo, int hi){
         if(lo < hi){
